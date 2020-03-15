@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +38,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.stats h2 {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
 }
