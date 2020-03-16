@@ -37,9 +37,9 @@ function App() {
   return (
     <div className="App">
       <h1>Seguimiento sobre el COVID-19 (Nuevo CORONAVIRUS)</h1>
-      <h3>A continuación mostramos las estadísticas sobre los siguientes caso:</h3>
+      <h3>A continuación mostramos las estadísticas sobre los siguientes casos...</h3>
       { loading === true && 
-        <p>Loading ...</p>
+        <p>Cargando ...</p>
       }
       { loading ===false && 
         <div class="paper stats">
@@ -61,7 +61,7 @@ function App() {
         <h4>{error}</h4>
       </div>
       <div className="footer">
-        <h4>This code is open source. Find it on <a href="#">GitHub</a>.</h4>
+        <h4>Este código está disponible en <a href="https://github.com/vicmonmena/follow-covid19">GitHub</a>.</h4>
       </div>
     </div>
   );
