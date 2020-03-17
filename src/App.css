@@ -54,3 +54,7 @@
 .error {
   color: red;
 }
+
+.App label {
+  font-weight: bold;
+}
