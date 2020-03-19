@@ -32,3 +32,5 @@ For making this resource public and soy easy to fetch.
 ### Daniel Ruiz de Alegría [@dani_ruiz24](https://twitter.com/dani_ruiz24)
 
 For this awesome css library https://drasite.com/flat-remix-css
+
+## Authors of the amazing library [react-spring](https://www.react-spring.io/)

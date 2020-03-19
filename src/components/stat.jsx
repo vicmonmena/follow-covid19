@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Spring} from 'react-spring/renderprops'
 
 const Stat = ({title = "no title", value = 0}) => {
 
@@ -9,7 +10,13 @@ const Stat = ({title = "no title", value = 0}) => {
 
   return (
     <div className="stat">
-      <h2 >{formatValue(value)}</h2> <h5 >{title.toUpperCase()}</h5>
+        <Spring 
+          from={{ number: 0 }}
+          to={{ number: value }}
+          config={{delay: 300}}>
+            {({number}) => <h2 >{number.toFixed(0)}</h2>}
+        </Spring>
+       <h5 >{title.toUpperCase()}</h5>
     </div>
   );
 };
