@@ -14,7 +14,7 @@ const Stat = ({title = "no title", value = 0}) => {
           from={{ number: 0 }}
           to={{ number: value }}
           config={{delay: 300}}>
-            {({number}) => <h2 >{number.toFixed(0)}</h2>}
+            {({number}) => <h2 >{formatValue(number.toFixed(0))}</h2>}
         </Spring>
        <h5 >{title.toUpperCase()}</h5>
     </div>
