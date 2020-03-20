@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './flat-remix.css';
 import Stat from './components/stat';
 import Countries from './components/countries';
+import CSSselector from './components/cssselector';
 
 function App() {
 
@@ -16,6 +16,10 @@ function App() {
   const [error, setError] = useState("")
   const [selectedCountry, setSelectedCountry] = useState("MUNDIAL")
   
+  useEffect(() => {
+    import('./css/flat/flat-remix.css');
+  }, []);
+
   useEffect(() => {
     loadData(url)
   }, [url]);
@@ -48,7 +52,7 @@ function App() {
 
   function formatDate(dateString) {
     if (dateString) {
-
+      
       console.log(dateString)
       const d = new Date(dateString)
       console.log(d)
@@ -64,12 +68,37 @@ function App() {
     }
   }
 
-  function handleSelectCountry(countrySelected) {
-    setSelectedCountry(countrySelected)
+  /**
+   * Maneja el valor del país seleccionado
+   *
+   * @param {*} selectedCountry
+   */
+  function handleSelectCountry(selectedCountry) {
+    setSelectedCountry(selectedCountry)
+  }
+
+  /**
+   * Maneja el valor del tipo de hoja de estilo (CSS Stylesheet) seleccionada
+   *
+   * @param {*} selectedCSS
+   */
+  async function handleSelectCSS(selectedCSS) {
+    switch (selectedCSS) {
+      case "skeuos":
+        await import('./css/skeuos/skeuos.css');
+        break;
+      default:
+        await import('./css/flat/flat-remix.css');
+        break;
+    }
   }
 
   return (
     <div className="App">
+      <CSSselector 
+        handleSelectCSS={handleSelectCSS}
+        selectedCSS="flat"
+      />
       <h1>Seguimiento sobre el COVID-19 (Nuevo CORONAVIRUS)</h1>
       <Countries 
         selectedCountry={selectedCountry}

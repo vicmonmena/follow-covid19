@@ -18,7 +18,6 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
           setError(err)
           console.log(err)
         });
-      console.log(countries)
       setCountries({'MUNDIAL': "md", ...data.countries });
       setLoading(false);
     }
@@ -26,7 +25,6 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
   }, []);
 
   function handleChangeCountry(event) {
-    console.log('countrySelected: ', event.target.value)
     if(event.target.value===selectedCountry) return false;
     else {
       handleSelectCountry(event.target.value)
