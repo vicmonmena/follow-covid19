@@ -52,19 +52,20 @@ function App() {
 
   function formatDate(dateString) {
     if (dateString) {
-      
-      console.log(dateString)
-      const d = new Date(dateString)
-      console.log(d)
-      const ye = new Intl.DateTimeFormat('es-ES', { year: 'numeric' }).format(d)
-      const mo = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(d)
-      const da = new Intl.DateTimeFormat('es-ES', { day: '2-digit' }).format(d)
-      const hr = new Intl.DateTimeFormat('es-ES', { hour: 'numeric' }).format(d)
-      const mn = new Intl.DateTimeFormat('es-ES', { minute: 'numeric' }).format(d)
-      const sc = new Intl.DateTimeFormat('es-ES', { second: 'numeric' }).format(d)
-      return `${da}-${mo}-${ye} a las ${hr}:${mn}:${sc}`
+      try {
+        const d = new Date(dateString)
+        const ye = new Intl.DateTimeFormat('es-ES', { year: 'numeric' }).format(d)
+        const mo = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(d)
+        const da = new Intl.DateTimeFormat('es-ES', { day: '2-digit' }).format(d)
+        const hr = new Intl.DateTimeFormat('es-ES', { hour: 'numeric' }).format(d)
+        const mn = new Intl.DateTimeFormat('es-ES', { minute: 'numeric' }).format(d)
+        const sc = new Intl.DateTimeFormat('es-ES', { second: 'numeric' }).format(d)
+        return `${da}-${mo}-${ye} a las ${hr}:${mn}:${sc}`
+      } catch (error) {
+        return 'No hay fecha'
+      }
     } else {
-      return 'no info'
+      return 'No hay fecha'
     }
   }
 
