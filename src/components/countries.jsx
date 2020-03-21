@@ -11,7 +11,6 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      console.log('Fetching Data');
       const data = await fetch('https://covid19.mathdro.id/api/countries')
         .then(res => res.json())
         .catch(err => {
