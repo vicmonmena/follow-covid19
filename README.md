@@ -1,4 +1,4 @@
-Follow COVID19 cases. This statistics are fetched from [this API](https://covid19.mathdro.id/api)
+Follow up COVID19 cases. This statistics are fetched from [this API](https://covid19.mathdro.id/api)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -23,7 +23,11 @@ Launches the test runner in the interactive watch mode.<br />
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Many thanx to
+## `npm run deploy`
+
+Publish this web on GitHub Pages. Better do this in `gh-pages` branch
+
+## Greetings
 
 ### Muhammad Mustadi [@mathdroid](https://twitter.com/mathdroid)
 
@@ -31,6 +35,11 @@ For making [this API](https://github.com/mathdroid/covid-19-api) public and soy 
 
 ### Daniel Ruiz de Alegría [@dani_ruiz24](https://twitter.com/dani_ruiz24)
 
-For this awesome css library https://drasite.com/flat-remix-css
+For this awesome css libraries:
 
-## Authors of the amazing library [react-spring](https://www.react-spring.io/)
+  - [flat-remix-css](https://drasite.com/flat-remix-css)
+  - [Skeuos-css](https://drasite.com/skeuos-css)
+
+### Authors of the amazing React-Spring library 
+
+You can find awesome animations using [react-spring](https://www.react-spring.io/)
