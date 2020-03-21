@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     console.log("stats: ", stats)
-    if (stats !== undefined) {
+    if (stats !== undefined && stats.error === undefined) {
       setConfirmed(stats.confirmed)
       setRecovered(stats.recovered)
       setDeaths(stats.deaths)
