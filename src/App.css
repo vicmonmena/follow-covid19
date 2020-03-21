@@ -40,6 +40,18 @@
   }
 }
 
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* .code-available {
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 200px;
+} */
 
 .stats {
   display: flex;

@@ -15,8 +15,10 @@ function App() {
   const [lastUpdate, setLastUpdate] = useState(new Date())
   const [error, setError] = useState("")
   const [selectedCountry, setSelectedCountry] = useState("MUNDIAL")
+  const [selectedCSS, setSelectedCSS] = useState("flat")
   
   useEffect(() => {
+    console.log("selectedCSS: ", selectedCSS);
     import('./css/flat/flat-remix.css');
   }, []);
 
@@ -83,23 +85,22 @@ function App() {
    *
    * @param {*} selectedCSS
    */
-  async function handleSelectCSS(selectedCSS) {
+  function handleSelectCSS(selectedCSS) {
     switch (selectedCSS) {
       case "skeuos":
-        await import('./css/skeuos/skeuos.css');
+        setSelectedCSS(selectedCSS)
+        import('./css/skeuos/skeuos.css');
         break;
       default:
-        await import('./css/flat/flat-remix.css');
+        setSelectedCSS(selectedCSS)
+        window.location.reload(false);
+        // await import('./css/flat/flat-remix.css');
         break;
     }
   }
 
   return (
     <div className="App">
-      <CSSselector 
-        handleSelectCSS={handleSelectCSS}
-        selectedCSS="flat"
-      />
       <h1>Seguimiento sobre el COVID-19 (Nuevo CORONAVIRUS)</h1>
       <Countries 
         selectedCountry={selectedCountry}
@@ -132,7 +133,13 @@ function App() {
         <h4>{error}</h4>
       </div>
       <div className="footer">
-        <h4>Este código está disponible en <a href="https://github.com/vicmonmena/follow-covid19">GitHub</a>.</h4>
+        <CSSselector 
+          handleSelectCSS={handleSelectCSS}
+          selectedCSS={selectedCSS}
+        />
+        <div className="code-available">
+          <h5>El código de esta web está disponible en <a href="https://github.com/vicmonmena/follow-covid19" target="_blank" rel="noopener noreferrer">GitHub</a>.</h5>
+        </div>
       </div>
     </div>
   );

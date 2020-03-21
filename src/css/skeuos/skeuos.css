@@ -50,23 +50,23 @@ html, body {
   margin: 0;
   font-size: 10pt; }
 
-.with-shadow, .outset, .paper, input[type="text"]:not(select):focus, input[type="search"]:not(select):focus, input[type="tel"]:not(select):focus, input[type="url"]:not(select):focus,
+.with-shadow, .outset, button, .checktext input + span, .blue-button, .checktext input:checked + span, .green-button, .red-button, input[type="button"], input[type="submit"], input[type="reset"], select, input[type="text"]:not(select):focus, input[type="search"]:not(select):focus, input[type="tel"]:not(select):focus, input[type="url"]:not(select):focus,
 input[type="email"]:not(select):focus, input[type="password"]:not(select):focus, input[type="date"]:not(select):focus,
 input[type="month"]:not(select):focus, input[type="week"]:not(select):focus, input[type="time"]:not(select):focus,
-input[type="number"]:not(select):focus, input[type="color"]:not(select):focus, select:not(select):focus, textarea:not(select):focus, select, button, .red-button, .green-button, .blue-button, .checktext input:checked + span, .checktext input + span, input[type="button"], input[type="submit"], input[type="reset"] {
+input[type="number"]:not(select):focus, input[type="color"]:not(select):focus, select:not(select):focus, textarea:not(select):focus, .paper {
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1), -6px -6px 10px white; }
 
-.outset, .paper, input[type="text"]:not(select):focus, input[type="search"]:not(select):focus, input[type="tel"]:not(select):focus, input[type="url"]:not(select):focus,
+.outset, button, .checktext input + span, .blue-button, .checktext input:checked + span, .green-button, .red-button, input[type="button"], input[type="submit"], input[type="reset"], select, input[type="text"]:not(select):focus, input[type="search"]:not(select):focus, input[type="tel"]:not(select):focus, input[type="url"]:not(select):focus,
 input[type="email"]:not(select):focus, input[type="password"]:not(select):focus, input[type="date"]:not(select):focus,
 input[type="month"]:not(select):focus, input[type="week"]:not(select):focus, input[type="time"]:not(select):focus,
-input[type="number"]:not(select):focus, input[type="color"]:not(select):focus, select:not(select):focus, textarea:not(select):focus, select, button, .red-button, .green-button, .blue-button, .checktext input:checked + span, .checktext input + span, input[type="button"], input[type="submit"], input[type="reset"] {
+input[type="number"]:not(select):focus, input[type="color"]:not(select):focus, select:not(select):focus, textarea:not(select):focus, .paper {
   border-radius: 10px;
   background: #f2f3f7; }
 
-.inset, input[type="text"]:not(select), input[type="search"]:not(select), input[type="tel"]:not(select), input[type="url"]:not(select),
+.inset, hr, button.active, .checktext input + span.active, .active.blue-button, .active.green-button, .active.red-button, button:active, .checktext input + span:active, .blue-button:active, .green-button:active, .red-button:active, input[type="button"].active, input[type="button"]:active, input[type="submit"].active, input[type="submit"]:active, input[type="reset"].active, input[type="reset"]:active, input[type="text"]:not(select), input[type="search"]:not(select), input[type="tel"]:not(select), input[type="url"]:not(select),
 input[type="email"]:not(select), input[type="password"]:not(select), input[type="date"]:not(select),
 input[type="month"]:not(select), input[type="week"]:not(select), input[type="time"]:not(select),
-input[type="number"]:not(select), input[type="color"]:not(select), select:not(select), textarea:not(select), button.active, .active.red-button, .active.green-button, .active.blue-button, .checktext input + span.active, button:active, .red-button:active, .green-button:active, .blue-button:active, .checktext input + span:active, input[type="button"].active, input[type="button"]:active, input[type="submit"].active, input[type="submit"]:active, input[type="reset"].active, input[type="reset"]:active, hr {
+input[type="number"]:not(select), input[type="color"]:not(select), select:not(select), textarea:not(select) {
   border-radius: 10px;
   box-shadow: 0 0 transparent, 0 0 transparent, inset 3px 3px 5px rgba(0, 0, 0, 0.1), inset -3px -3px 5px white;
   background: #f8f9fb; }
@@ -92,7 +92,9 @@ input[type="number"], input[type="color"], select, textarea {
   background: #f2f3f7;
   color: #7b7e8c;
   font-weight: normal;
-  padding: 15px 20px;
+  padding: 0 1.25em;
+  line-height: 1.25em;
+  height: 3.5em;
   margin: 10px 0;
   font-size: 1.1rem;
   cursor: text;
@@ -103,6 +105,10 @@ input[type="number"], input[type="color"], select, textarea {
   -moz-user-select: text;
   -ms-user-select: text;
   transition: box-shadow .2s; }
+
+textarea {
+  height: 350px;
+  padding: 1.25em; }
 
 select {
   cursor: pointer;
@@ -131,7 +137,7 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none; }
 
-button, .red-button, .green-button, .blue-button, .checktext input:checked + span, .checktext input + span, input[type="button"], input[type="submit"], input[type="reset"] {
+button, .checktext input + span, .blue-button, .checktext input:checked + span, .green-button, .red-button, input[type="button"], input[type="submit"], input[type="reset"] {
   border: 0;
   text-transform: capitalize;
   padding: 10px 0;
@@ -143,7 +149,7 @@ button, .red-button, .green-button, .blue-button, .checktext input:checked + spa
   transition-property: background-color, box-shadow;
   transition-delay: .2s;
   transition-duration: .2s; }
-  button.active, .active.red-button, .active.green-button, .active.blue-button, .checktext input + span.active, button:active, .red-button:active, .green-button:active, .blue-button:active, .checktext input + span:active, input[type="button"].active, input[type="button"]:active, input[type="submit"].active, input[type="submit"]:active, input[type="reset"].active, input[type="reset"]:active {
+  button.active, .checktext input + span.active, .active.blue-button, .active.green-button, .active.red-button, button:active, .checktext input + span:active, .blue-button:active, .green-button:active, .red-button:active, input[type="button"].active, input[type="button"]:active, input[type="submit"].active, input[type="submit"]:active, input[type="reset"].active, input[type="reset"]:active {
     transition-delay: 0s;
     transition-duration: .1s; }
 

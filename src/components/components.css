@@ -1,4 +1,14 @@
-.cssselector {
-  float: inline-start;
-  position: fixed;
+/* .cssselector {
+  padding: 10px;
+  margin-right: 50px;
+  flex-grow: 1;
+} */
+
+.cssselector-title {
+  font-size: medium;
+  padding: 10px;
+}
+
+.rounded-button {
+  width: 50%;
 }
