@@ -6,7 +6,6 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
   // const [url, setUrl] = useState('https://covid19.mathdro.id/api/countries');
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -14,10 +13,10 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
       const data = await fetch('https://covid19.mathdro.id/api/countries')
         .then(res => res.json())
         .catch(err => {
-          setError(err)
           console.log(err)
         });
-      setCountries({'MUNDIAL': "md", ...data.countries });
+        const countryList = data !== undefined ? data.countries : []
+        setCountries(data !== undefined ? {'MUNDIAL': "md", ...countryList } : {'Error loading countries': 'err'});
       setLoading(false);
     }
     fetchData();

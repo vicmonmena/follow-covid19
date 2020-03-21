@@ -4,9 +4,11 @@ import './components.css'
 
 const CSSselector = ({selectedCSS = "flat", handleSelectCSS}) => {
   const [url, setUrl] = useState('https://drasite.com/flat-remix-css')
+
   useEffect(() => {
-    setUrl(handleSelectCSS === "skeuos" ? "https://drasite.com/skeuos-css" : "https://drasite.com/flat-remix-css")
-  }, []);
+    console.log("selectedCSS: ", selectedCSS)
+    setUrl(selectedCSS === "skeuos" ? "https://drasite.com/skeuos-css" : "https://drasite.com/flat-remix-css")
+  }, [selectedCSS]);
 
   function handleChangeCSS(event) {
     if(event.target.value===selectedCSS) return false;
@@ -18,7 +20,7 @@ const CSSselector = ({selectedCSS = "flat", handleSelectCSS}) => {
   return (
     <div className="cssselector">
       <span className="cssselector-title">
-        ¿Cómo quieres ver esta web?
+        Cómo quieres ver esta web
       </span>
       <select 
         id="cssselector"

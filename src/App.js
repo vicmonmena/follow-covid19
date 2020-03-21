@@ -6,19 +6,23 @@ import CSSselector from './components/cssselector';
 
 function App() {
 
+  const empty = {
+    confirmed: {value: 0},
+    recovered: {value: 0},
+    deaths: {value: 0}
+  }
+
   const [url, setUrl] = useState('https://covid19.mathdro.id/api')
-  const [stats, setStats] = useState({});
+  const [stats, setStats] = useState(empty);
   const [loading, setLoading] = useState(false)
-  const [confirmed, setConfirmed] = useState(0)
-  const [recovered, setRecovered] = useState(0)
-  const [deaths, setDeaths] = useState(0)
+  const [confirmed, setConfirmed] = useState({value: 0})
+  const [recovered, setRecovered] = useState({value: 0})
+  const [deaths, setDeaths] = useState({value: 0})
   const [lastUpdate, setLastUpdate] = useState(new Date())
-  const [error, setError] = useState("")
   const [selectedCountry, setSelectedCountry] = useState("MUNDIAL")
   const [selectedCSS, setSelectedCSS] = useState("flat")
   
   useEffect(() => {
-    console.log("selectedCSS: ", selectedCSS);
     import('./css/flat/flat-remix.css');
   }, []);
 
@@ -27,10 +31,18 @@ function App() {
   }, [url]);
 
   useEffect(() => {
-    setConfirmed(stats.confirmed ?? 0)
-    setRecovered(stats.recovered ?? 0)
-    setDeaths(stats.deaths ?? 0)
-    setLastUpdate(stats.lastUpdate ?? 'no info')
+    console.log("stats: ", stats)
+    if (stats !== undefined) {
+      setConfirmed(stats.confirmed)
+      setRecovered(stats.recovered)
+      setDeaths(stats.deaths)
+      setLastUpdate(stats.lastUpdate ?? 'no info')
+    } else {
+      setConfirmed({value: 0})
+      setRecovered({value: 0})
+      setDeaths({value: 0})
+      setLastUpdate('no info')
+    }
   }, [stats])
 
   useEffect(() => {
@@ -44,9 +56,9 @@ function App() {
       const data = await fetch(url)
         .then(res => res.json())
         .catch(err => {
-          setError(err)
+          console.log("err: ", err)
         });
-      setStats(data);
+      setStats(data !== undefined ? data : empty);
       setLoading(false);
     }
     fetchData();
@@ -129,9 +141,6 @@ function App() {
           />
         </div>
       }
-      <div className="error">
-        <h4>{error}</h4>
-      </div>
       <div className="footer">
         <CSSselector 
           handleSelectCSS={handleSelectCSS}
