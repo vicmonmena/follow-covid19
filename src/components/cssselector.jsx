@@ -6,7 +6,6 @@ const CSSselector = ({selectedCSS = "flat", handleSelectCSS}) => {
   const [url, setUrl] = useState('https://drasite.com/flat-remix-css')
 
   useEffect(() => {
-    console.log("selectedCSS: ", selectedCSS)
     setUrl(selectedCSS === "skeuos" ? "https://drasite.com/skeuos-css" : "https://drasite.com/flat-remix-css")
   }, [selectedCSS]);
 

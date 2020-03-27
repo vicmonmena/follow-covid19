@@ -19,7 +19,7 @@ function App() {
   const [recovered, setRecovered] = useState({value: 0})
   const [deaths, setDeaths] = useState({value: 0})
   const [lastUpdate, setLastUpdate] = useState(new Date())
-  const [selectedCountry, setSelectedCountry] = useState("MUNDIAL")
+  const [selectedCountry, setSelectedCountry] = useState("Spain")
   const [selectedCSS, setSelectedCSS] = useState("flat")
   
   useEffect(() => {
@@ -31,7 +31,6 @@ function App() {
   }, [url]);
 
   useEffect(() => {
-    console.log("stats: ", stats)
     if (stats !== undefined && stats.error === undefined) {
       setConfirmed(stats.confirmed)
       setRecovered(stats.recovered)
@@ -46,7 +45,7 @@ function App() {
   }, [stats])
 
   useEffect(() => {
-    if (selectedCountry === "MUNDIAL") setUrl('https://covid19.mathdro.id/api')
+    if (selectedCountry.toUpperCase() === "MUNDIAL") setUrl('https://covid19.mathdro.id/api')
     else setUrl(`https://covid19.mathdro.id/api/countries/${selectedCountry}`)
   }, [selectedCountry])
 

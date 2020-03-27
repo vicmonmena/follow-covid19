@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
+const Countries = ({selectedCountry = "Spain", handleSelectCountry}) => {
 
   // const [url, setUrl] = useState('https://covid19.mathdro.id/api/countries');
   const [countries, setCountries] = useState([]);
@@ -15,12 +15,16 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
         .catch(err => {
           console.log(err)
         });
-        const countryList = data !== undefined ? data.countries : []
-        setCountries(data !== undefined ? {'MUNDIAL': "md", ...countryList } : {'Error loading countries': 'err'});
+        const countryList = data !== undefined ? formatCountries(data.countries) : []
+        setCountries(data !== undefined ? [{name: 'MUNDIAL', value: "md"}].concat(countryList) : {'Error loading countries': 'err'});
       setLoading(false);
     }
     fetchData();
   }, []);
+
+  function formatCountries(data) {
+    return data.map(country => ({ name: country.name, value: country.iso3 }))
+  }
 
   function handleChangeCountry(event) {
     if(event.target.value===selectedCountry) return false;
@@ -40,7 +44,7 @@ const Countries = ({selectedCountry = "MUNDIAL", handleSelectCountry}) => {
           onChange={handleChangeCountry}
           value={selectedCountry}>
           {
-            Object.keys(countries).map(country => <option key={country} value={country}>{country}</option>)
+            countries.map(country => <option key={country.name} value={country.name}>{country.name}</option>)
           }
         </select>
       }
