@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Spring} from 'react-spring/renderprops'
+import './components.css'
 
 const Stat = ({title = "no title", value = 0}) => {
 

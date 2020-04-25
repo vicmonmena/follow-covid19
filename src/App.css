@@ -40,6 +40,18 @@
   }
 }
 
+.App label {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px){
+
+}
+
+@media screen and (max-width: 400px){
+
+}
+
 .footer {
   display: flex;
   flex-direction: row;
@@ -48,26 +60,48 @@
   padding: 50px;
 }
 
-/* .code-available {
-  flex-grow: 1;
-  text-align: left;
-  margin-left: 200px;
-} */
-
-.stats {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.stats h2 {
-  font-weight: bold;
-}
-
 .error {
   color: red;
 }
 
-.App label {
-  font-weight: bold;
+/* por debajo de 768px*/
+@media screen and (max-width: 768px){
+  .App h1 {
+    font-size:35px;
+  }
+  .App h3 {
+    font-weight: bold;
+    font-size:15px;
+  }
+  .code-available {
+    font-size:15px;
+  }
+}
+
+/* por debajo de 480px*/
+@media screen and (max-width: 480px){
+  .App h1 {
+    font-size:20px;
+  }
+  .App h3 {
+    font-weight: bold;
+    font-size:10px;
+  }
+  .code-available {
+    font-size:10px;
+  }
+}
+
+/* por debajo de 320px*/
+@media screen and (max-width: 320px) {
+  .App h1 {
+    font-size: 15px;
+  }
+  .App h3 {
+    font-weight: bold;
+    font-size: xx-small;
+  }
+  .code-available {
+    font-size: xx-small;
+  }
 }

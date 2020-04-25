@@ -1,3 +1,13 @@
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.stats h2 {
+  font-weight: bold;
+}
+
 /* .cssselector {
   padding: 10px;
   margin-right: 50px;
@@ -11,4 +21,49 @@
 
 .rounded-button {
   width: 50%;
+}
+
+/* por debajo de 768px*/
+@media screen and (max-width: 768px) {
+  .stats h2 {
+    font-weight: bold;
+    font-size: 25px;
+  }
+  .stats h5 {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .cssselector-title {
+    font-size: small;
+  }
+}
+
+/* por debajo de 480px*/
+@media screen and (max-width: 480px) {
+  .stats h2 {
+    font-weight: bold;
+    font-size:20px;
+  }
+  .stats h5 {
+    font-weight: bold;
+    font-size:10px;
+  }
+  .cssselector-title {
+    font-size: x-small;
+  }
+}
+
+/* por debajo de 320px*/
+@media screen and (max-width: 320) {
+  .stats h2 {
+    font-weight: bold;
+    font-size:15px;
+  }
+  .stats h5 {
+    font-weight: bold;
+    font-size:7px;
+  }
+  .cssselector-title {
+    font-size: xx-small;
+  }
 }
