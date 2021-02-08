@@ -4,6 +4,7 @@ Follow up COVID19 cases. This statistics are fetched from [this API](https://cov
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You can visit this web from mobile or web. Just go to: [https://vicmonmena.github.io/follow-covid19/](https://vicmonmena.github.io/follow-covid19/)
 ## Available Scripts
 
 In the project directory, you can run:
