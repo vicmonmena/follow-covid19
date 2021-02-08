@@ -1,3 +1,5 @@
+# About this project
+
 Follow up COVID19 cases. This statistics are fetched from [this API](https://covid19.mathdro.id/api)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
